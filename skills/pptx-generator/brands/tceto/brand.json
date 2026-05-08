@@ -1,0 +1,29 @@
+{
+  "name": "TCETO",
+  "description": "Superávit de Produtividade: A Inteligência Artificial Aplicada à Execução Orçamentária",
+
+  "colors": {
+    "background": "ffffff",
+    "background_alt": "f9fafb",
+    "text": "111827",
+    "text_secondary": "4b5563",
+    "accent": "01467d",
+    "accent_secondary": "0078d4",
+    "accent_tertiary": "ffc107",
+    "code_bg": "f3f4f6",
+    "card_bg": "f9fafb",
+    "card_bg_alt": "f3f4f6"
+  },
+
+  "fonts": {
+    "heading": "Montserrat",
+    "body": "Inter",
+    "code": "JetBrains Mono"
+  },
+
+  "assets": {
+    "logo": "assets/logo.png",
+    "logo_dark": null,
+    "icon": null
+  }
+}
