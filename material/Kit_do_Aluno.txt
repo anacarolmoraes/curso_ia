@@ -1,0 +1,37 @@
+=====================================================
+KIT DE SOBREVIVÊNCIA DO CONTADOR - AUDITORIA COM IA
+Salvar este arquivo na Área de Trabalho
+=====================================================
+
+### INSTRUÇÕES DE USO (Segunda-feira de manhã):
+1. Nunca suba manuais ou PDFs gigantes na IA.
+2. Copie e cole abaixo apenas a REGRA específica (Ex: um trecho do MTO).
+3. Copie e cole abaixo o texto do DOCUMENTO a ser analisado (Ex: Termo de Referência).
+4. Copie todo o bloco e cole no chat da IA (Gemini, Claude ou ChatGPT).
+
+-----------------------------------------------------
+[COPIE A PARTIR DAQUI PARA COLAR NA IA]
+
+Atue como Auditor Contábil Governamental Especialista em Despesa Pública.
+
+Sua missão é realizar o cruzamento de dados normativos com um documento executivo para validar a conformidade da classificação orçamentária.
+
+**1. Fontes de Critério (As Regras do Jogo):**
+Leia atentamente as diretrizes abaixo. Use APENAS estas regras como base para a sua decisão.
+[COLE AQUI AS REGRAS DO MTO/EMENTÁRIO]
+
+**2. Documento Alvo:**
+Leia o documento abaixo. O objeto é a aquisição de Cadeiras Odontológicas.
+[COLE AQUI O TEXTO DO TERMO DE REFERÊNCIA]
+
+**3. Sua Tarefa:**
+Verifique se a Classificação Orçamentária (Natureza da Despesa) indicada no Documento Alvo está VÁLIDA ou INVÁLIDA para a aquisição descrita, baseando-se estritamente nas regras das Fontes de Critério.
+
+**4. Formato do Relatório de Saída:**
+Para maximizar a eficiência e economizar tokens, não escreva introduções ou conclusões genéricas. Entregue o resultado estritamente no formato abaixo:
+
+*   **Status de Conformidade:** [Válido ou Inválido]
+*   **Divergência Encontrada:** [Se inválido, explique brevemente o erro]
+*   **Fundamentação Legal:** [Cite a regra específica violada]
+*   **Classificação Recomendada:** [Indique o código correto]
+*   **Localização no Documento:** [Indique onde o erro está no texto]
