@@ -14,7 +14,6 @@ O objetivo principal é democratizar o uso de agentes de IA, demonstrando como c
 - **`/skills`**: Habilidades modulares prontas para uso (ex: downloaders de boletins, conversores de PDF para Markdown, geradores de apresentações).
 - **`/material`**: Prompts estruturados, roteiros de instrutor e kits de apoio para alunos.
 - **`/classificacao_orcamentaria`**: Estudos de caso reais e documentos de análise para prática de auditoria assistida por IA.
-- **`/scratch`**: Scripts experimentais e ferramentas de suporte para manipulação de dados em Excel e HTML.
 
 ## 🛠️ Tecnologias Utilizadas
 
