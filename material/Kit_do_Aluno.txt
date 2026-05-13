@@ -32,6 +32,9 @@ Para maximizar a eficiência e economizar tokens, não escreva introduções ou 
 
 *   **Status de Conformidade:** [Válido ou Inválido]
 *   **Divergência Encontrada:** [Se inválido, explique brevemente o erro]
-*   **Fundamentação Legal:** [Cite a regra específica violada]
-*   **Classificação Recomendada:** [Indique o código correto]
+*   **Fundamentação Legal:** [Cite a regra específica violada e cite o trecho do texto da regra violada]
+*   **Classificação Recomendada:** [Indique o código correto (incluindo todos os 8 dígitos)]
+*   **Justificativa para a classificação recomendada:** [Explique por que a classificação recomendada é a correta]
+*   **Descrição da Classificação Recomendada:** [Sugira a descrição correta]
 *   **Localização no Documento:** [Indique onde o erro está no texto]
+

@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 .env
 .gemini/
+diarias/diario_oficial/

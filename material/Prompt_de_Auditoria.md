@@ -19,9 +19,11 @@ Verifique se a Classificação Orçamentária (Natureza da Despesa) indicada no 
 
 **4. Formato do Relatório de Saída:**
 Para maximizar a eficiência e economizar tokens, não escreva introduções ou conclusões genéricas. Entregue o resultado estritamente no formato abaixo:
-
+   
 *   **Status de Conformidade:** [Válido ou Inválido]
-*   **Divergência Encontrada:** [Se inválido, explique brevemente qual foi o erro de classificação cometido pelo autor do TR]
-*   **Fundamentação Legal:** [Cite a regra específica do MTO/Ementário que foi violada]
-*   **Classificação Recomendada:** [Indique qual é o código correto para esta aquisição]
-*   **Localização no TR:** [Indique em qual seção ou linha do Termo de Referência o erro se encontra para que o setor responsável possa alterar]
+*   **Divergência Encontrada:** [Se inválido, explique brevemente o erro]
+*   **Fundamentação Legal:** [Cite a regra específica violada e cite o trecho do texto da regra violada]
+*   **Classificação Recomendada:** [Indique o código correto (incluindo todos os 8 dígitos)]
+*   **Justificativa para a classificação recomendada:** [Explique por que a classificação recomendada é a correta]
+*   **Descrição da Classificação Recomendada:** [Sugira a descrição correta]
+*   **Localização no Documento:** [Indique onde o erro está no texto]

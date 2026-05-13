@@ -48,7 +48,8 @@ Documento fictício para uso didático em curso de IA - não vale como documento
 |:--- |:--- |
 | Função | 10 - Saúde |
 | Subfunção | 301 - Atenção Básica |
-| Natureza de despesa | proposta | **Função** 10 - Saúde **Subfunção** 301 - Atenção Básica **Natureza de despesa** **proposta** 3.3.90.30.16 - Material de Uso Médico
+| Natureza de despesa | proposta | **Função** 10 - Saúde **Subfunção** 301 - Atenção Básica **Natureza de despesa** **proposta** 
+3.3.90.30.16 - Material de Uso Médico
 
 **Modalidade de aplicação** 90 - Aplicações Diretas **Fonte** 1.600.1002 - SUS - Bloco de Custeio
 
