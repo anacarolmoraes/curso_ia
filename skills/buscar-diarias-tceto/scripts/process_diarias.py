@@ -112,8 +112,13 @@ def extract_data_from_md(file_path):
         if not port_num_match: continue
         port_num = port_num_match.group(1)
         
-        # Verificar se é portaria de viagem/diárias
-        if "empreender viagem" in port_content.lower():
+        # Filtrar estritamente: Deve ser da presidência e autorizar viagem ou diárias
+        port_lower = port_content.lower()
+        is_from_president = "presidente" in port_lower or "presidência" in port_lower
+        is_authorizing = any(word in port_lower for word in ["autorizar", "conceder", "atribuir", "designar"])
+        is_travel_or_per_diem = any(term in port_lower for term in ["viagem", "diária", "deslocamento", "itinerário"])
+        
+        if is_from_president and is_authorizing and is_travel_or_per_diem:
             # Extrair Processo SEI
             sei_match = re.search(r"Processo SEI nº\s*([\d\.\-]+)", port_content)
             sei_proc = sei_match.group(1) if sei_match else "Não informado"
@@ -129,39 +134,42 @@ def extract_data_from_md(file_path):
             qtd_match = re.search(r"([\d,\.]+)\s*\(.*?\)\s*diárias", port_content)
             qtd_diarias = float(qtd_match.group(1).replace(',', '.')) if qtd_match else 0.0
             
-            # Extrair Servidores/Membros e Valores
-            # Padrão: NOME, CARGO, mat. nº MATRICULA $$ R$ VALOR $$
-            people_matches = re.finditer(r"([A-Z\s]+),\s*(.*?),\s*mat\.\s*nº\s*([\d\.\-]+).*?R\$\s*([\d\.,]+)", port_content, re.DOTALL)
+            # Isolar a parte dos servidores (geralmente após o Período) para evitar preâmbulos
+            part_after_periodo = port_content
+            if "**Período:**" in port_content:
+                part_after_periodo = port_content.split("**Período:**")[-1]
+            elif "Período:" in port_content:
+                part_after_periodo = port_content.split("Período:")[-1]
+            elif "**Itinerário:**" in port_content:
+                part_after_periodo = port_content.split("**Itinerário:**")[-1]
+
+            # Regex aprimorada para focar apenas nos nomes e limitar o tamanho do cargo
+            regex_pessoas = r"([A-ZÁÉÍÓÚÂÊÎÔÛÃÕÇ\s]+),\s*(.{1,100}?),\s*mat\.?\s*(?:nº|n\.)?\s*([\d\.\-]+).*?R\$\s*([\d\.,]+)"
+            people_matches = re.finditer(regex_pessoas, part_after_periodo, re.DOTALL)
             
             for m in people_matches:
-                extracted_records.append({
-                    "Boletim": boletim_num,
-                    "Portaria": port_num,
-                    "Nome": m.group(1).strip(),
-                    "Cargo": m.group(2).strip(),
-                    "Matrícula": m.group(3).strip(),
-                    "Data Publicação": pub_date,
-                    "Itinerário": itinerario,
-                    "Período": periodo_full,
-                    "Qtd Diárias": qtd_diarias,
-                    "Total Diária": float(m.group(4).replace('.', '').replace(',', '.')),
-                    "Processo SEI": sei_proc
-                })
+                nome = m.group(1).strip()
+                cargo = m.group(2).strip()
+                matricula = m.group(3).strip()
+                valor_diaria = float(m.group(4).replace('.', '').replace(',', '.'))
                 
-            # Caso especial: Conselheiro Presidente
-            pres_match = re.search(r"([A-Z\s]+),\s*\*\*\s*\*\*\s*mat\.\s*nº\s*([\d\.\-]+).*?R\$\s*([\d\.,]+)", port_content, re.DOTALL)
-            if pres_match and "Conselheiro Presidente" in port_content:
+                # Tratar caso especial onde o cargo vem como asteriscos (ex: Presidente)
+                if cargo in ['** **', '**', ''] or "Presidente" in port_content:
+                    # Se for o presidente, não tem cargo escrito claramente
+                    if "SEVILHA" in nome or "PRESIDENTE" in port_content:
+                         cargo = "Conselheiro Presidente"
+                         
                 extracted_records.append({
                     "Boletim": boletim_num,
                     "Portaria": port_num,
-                    "Nome": pres_match.group(1).strip(),
-                    "Cargo": "Conselheiro Presidente",
-                    "Matrícula": pres_match.group(2).strip(),
+                    "Nome": nome,
+                    "Cargo": cargo,
+                    "Matrícula": matricula,
                     "Data Publicação": pub_date,
                     "Itinerário": itinerario,
                     "Período": periodo_full,
                     "Qtd Diárias": qtd_diarias,
-                    "Total Diária": float(pres_match.group(3).replace('.', '').replace(',', '.')),
+                    "Total Diária": valor_diaria,
                     "Processo SEI": sei_proc
                 })
 
